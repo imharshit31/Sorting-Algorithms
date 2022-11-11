@@ -16,7 +16,7 @@ int main() {
     
     //Find the min element and swap with the ith index, after each iteration the (i+1)th smallest no will be at its place
     
-    //Time - O(n), Space - O(1)
+    //Time - Best - O(n^2), Avg - O(n^2), Worst - O(n^2), Space - O(1)
     
     return 0;
 }
