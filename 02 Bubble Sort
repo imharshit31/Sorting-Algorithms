@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    
+    //Bubble Sort
+    
+    vector<int> v={8,7,6,5,4,3,2,1};
+    int n=v.size();
+    
+    for(int i=n-1;i>=0;i--){
+        bool flag=false;
+        for(int j=0;j<i;j++)
+            if(v[j]>v[j+1]){
+                flag=true;
+                swap(v[j],v[j+1]);
+            }
+        if(!flag) break;
+    }
+     
+    for(auto a: v) cout<<a<<" ";
+    
+    //Swap adjacent elements if they are wrongly placed, after one loop, the highest will be placed at the last.
+    
+    //Time - Best - O(n), Avg - O(n^2), Worst - O(n^2), Space - O(1)
+    
+    return 0;
+}
