@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    
+    //Insertion Sort
+    
+    vector<int> v={8,7,6,5,4,3,2,1};
+    int n=v.size();
+    
+    for(int i=1;i<n;i++){
+        int ind=i;
+        while(ind and v[ind-1]>v[ind]){
+            swap(v[ind-1],v[ind]);
+            ind--;
+        }
+    }
+     
+    for(auto a: v) cout<<a<<" ";
+    
+    //Making the array till ind i sorted in each loop by placing the ith element at its correct location
+    
+    //Time - Best - O(n), Avg - O(n^2), Worst - O(n^2), Space - O(1)
+    
+    return 0;
+}
