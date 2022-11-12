@@ -1,0 +1,46 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int partition(vector<int> &arr, int l, int h){
+    
+    int pivot=arr[h];
+    int i=l-1;
+    
+    for(int j=l;j<h;j++){
+        if(arr[j]<pivot){
+            i++;
+            swap(arr[i],arr[j]);
+        }
+    }
+    i++;
+    swap(arr[i],arr[h]);
+    return i;
+}
+
+void quickSort(vector<int> &v, int l, int h){
+    
+    if(l<h){
+        int pi=partition(v,l,h);
+        
+        quickSort(v,l,pi-1);
+        quickSort(v,pi+1,h);
+    }
+}
+
+int main() {
+    
+    //Quick Sort
+    
+    vector<int> v={8,7,6,5,4,3,2,1};
+    int n=v.size();
+    
+    quickSort(v,0,n-1);
+     
+    for(auto a: v) cout<<a<<" ";
+    
+    //Placing pivot at it position and sorting around it 
+    
+    //Time - Best - O(n log(n)), Avg - O(n log(n)), Worst - O(n^2), Space - O(n)
+    
+    return 0;
+}
