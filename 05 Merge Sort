@@ -1,0 +1,50 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+//Merge Sort
+
+void conquer(vector<int> &v, int s, int m, int e){
+    
+    vector<int> merged;
+    int i1=s,i2=m+1;
+    
+    while(i1 <= m and i2<=e){
+        if(v[i1]<=v[i2]) merged.push_back(v[i1++]);
+        else merged.push_back(v[i2++]);
+    }
+    
+    while(i1<=m) merged.push_back(v[i1++]);
+    while(i2<=e) merged.push_back(v[i2++]);
+    
+    int s2=s;
+    
+    for(auto a: merged) v[s2++]=a;
+}
+
+void divide(vector<int> &v, int s, int e){
+    
+    if(s>=e) return;
+    
+    int m= s+(e-s)/2;
+    divide(v,s,m);
+    divide(v,m+1,e);
+    
+    conquer(v,s,m,e);
+    
+}
+
+int main() {
+    
+    vector<int> v={8,7,6,5,4,3,2,1};
+    
+    divide(v,0,v.size()-1);
+    
+    for(auto a: v) cout<<a<<" ";
+    cout<<endl;
+    
+    return 0;
+}
+
+//We divide the array till it contains single element, then we start joining it in sorted order
+
+//Time: Best- O(n log(n))           Avg- O(n log(n))           Worst- O(n log(n))          Space: O(n)
